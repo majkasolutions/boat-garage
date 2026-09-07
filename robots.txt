@@ -4,4 +4,5 @@ Disallow: /site/
 Disallow: /garage/
 Disallow: /clean/
 Disallow: /tasarimlar/
+Disallow: /en/
 Sitemap: https://boat-garage.com/sitemap.xml
