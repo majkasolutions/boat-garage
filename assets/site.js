@@ -1,6 +1,6 @@
 /* Boat Garage / Boat Clean — ortak betik: menü, görünürlük animasyonu, form gönderimi, analitik olayları */
 (function () {
-  var LEAD_URL = 'https://hixlepniydwuqxenjgrj.supabase.co/functions/v1/bg-lead';
+  var LEAD_URL = 'https://nbzcqrgmbakgzlkpbilc.supabase.co/functions/v1/bg-lead';
 
   // mobil menü
   var burger = document.querySelector('nav .burger'), menu = document.querySelector('nav ul');
