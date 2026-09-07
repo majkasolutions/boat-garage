@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boat Garage — Teknenizin kış evi · Çeşme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f6f4ef;--paper2:#ecE8df;--ink:#111418;--mute:#6b7280;--sea:#0e6ba8;--sea2:#0a4f7c;--line:rgba(17,20,24,.12);--r:26px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Space Grotesk",system-ui,sans-serif;font-weight:400;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:300;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1280px,92vw);margin:0 auto}
+nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:8px;background:rgba(246,244,239,.75);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 22px}
+nav .logo{font-weight:600;letter-spacing:.02em;margin-right:12px;display:flex;align-items:center;gap:10px}
+nav .logo i{width:10px;height:10px;border-radius:50%;background:var(--sea);display:inline-block}
+nav a.l{padding:8px 14px;border-radius:999px;font-size:14px;transition:.3s}
+nav a.l:hover{background:rgba(17,20,24,.06)}
+.pill{background:var(--ink);color:#fff;border-radius:999px;padding:12px 22px;font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:10px;transition:.35s}
+.pill:hover{background:var(--sea);transform:translateY(-1px)}
+.pill.light{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.pill.light:hover{background:var(--ink);color:#fff}
+/* hero */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:4vw;padding:130px 4vw 60px}
+.tag{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:8px 14px;margin-bottom:28px}
+.tag i{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.2)}
+.hero h1{font-size:clamp(50px,7vw,108px);line-height:.96}
+.hero h1 em{font-style:italic;color:var(--sea)}
+.hero h1 .c{display:inline-block;opacity:0;transform:translateY(30px) rotate(3deg)}
+.hero p{font-size:18px;line-height:1.65;color:var(--mute);max-width:44ch;margin:30px 0 36px}
+.hero .acts{display:flex;gap:14px;flex-wrap:wrap}
+.hero .vis{position:relative;height:min(78vh,760px);perspective:1200px}
+.hero .card{position:absolute;inset:0;border-radius:var(--r);overflow:hidden;background:#ddd;transform-style:preserve-3d;box-shadow:0 40px 80px -30px rgba(0,0,0,.35)}
+.hero .card img{width:100%;height:100%;object-fit:cover;transform:scale(1.1)}
+.hero .chip{position:absolute;background:#fff;border-radius:18px;padding:14px 18px;box-shadow:0 20px 40px -20px rgba(0,0,0,.35);font-size:14px;display:flex;gap:12px;align-items:center;opacity:0}
+.hero .chip b{display:block;font-weight:600}
+.hero .chip small{color:var(--mute)}
+.chip.c1{left:-40px;top:22%}.chip.c2{right:-30px;top:50%}.chip.c3{left:10%;bottom:-24px}
+.chip .ic{width:38px;height:38px;border-radius:12px;background:var(--paper2);display:grid;place-items:center;font-size:18px}
+/* logos strip */
+.strip{padding:30px 0 70px;display:flex;justify-content:center;gap:60px;flex-wrap:wrap;color:var(--mute);font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+/* clean section */
+.clean{padding:40px 0 120px}
+.clean .head{text-align:center;max-width:60ch;margin:0 auto 46px}
+.clean h2{font-size:clamp(40px,5.5vw,78px);line-height:1}
+.clean .head p{color:var(--mute);font-size:17px;margin-top:16px;line-height:1.6}
+.stage{position:relative;height:100vh;min-height:600px}
+.stage .stick{position:sticky;top:0;height:100vh;display:grid;place-items:center}
+.stage .frame{position:relative;width:min(92vw,1280px);height:min(84vh,780px);border-radius:var(--r);overflow:hidden;box-shadow:0 60px 100px -40px rgba(0,0,0,.4);cursor:none}
+.stage .layer{position:absolute;inset:0;background:url(img/superyacht-bow.jpg) center/cover}
+.stage .dirty{background-image:url(img/superyacht-bow-dirty.jpg)}
+.stage .fresh{clip-path:circle(0% at 50% 50%)}
+.stage .sponge{position:absolute;width:150px;height:150px;border-radius:50%;border:2px solid #fff;transform:translate(-50%,-50%);pointer-events:none;mix-blend-mode:difference;opacity:0;top:50%;left:50%}
+.stage .lbl{position:absolute;left:34px;bottom:30px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-radius:16px;padding:14px 18px;font-size:14px;display:flex;gap:14px;align-items:center}
+.stage .lbl b{font-family:Fraunces;font-size:28px;font-weight:300;min-width:64px}
+.stage .lbl .track{width:160px;height:4px;background:rgba(0,0,0,.1);border-radius:4px;overflow:hidden}.stage .lbl .track i{display:block;height:100%;width:0;background:var(--sea)}
+.stage .hint{position:absolute;right:34px;top:30px;background:rgba(17,20,24,.75);color:#fff;border-radius:999px;padding:10px 16px;font-size:13px}
+/* services */
+.services{padding:60px 0 120px}
+.sec-h{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+.sec-h h2{font-size:clamp(40px,5vw,72px);line-height:1}
+.sec-h p{color:var(--mute);font-size:17px;line-height:1.65;max-width:44ch}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card2{background:#fff;border-radius:var(--r);padding:28px;min-height:400px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line);position:relative;overflow:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
+.card2:hover{transform:translateY(-8px);box-shadow:0 40px 60px -30px rgba(14,107,168,.35)}
+.card2 figure{height:190px;border-radius:18px;overflow:hidden;margin-bottom:22px}
+.card2 figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.card2:hover figure img{transform:scale(1.08)}
+.card2 h3{font-size:30px;margin-bottom:8px}
+.card2 p{color:var(--mute);line-height:1.6;font-size:15px}
+.card2 .k{font-size:12px;color:var(--sea);letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px;font-weight:500}
+.card2.wide{grid-column:span 2;flex-direction:row;gap:30px;align-items:center;background:var(--ink);color:#fff;border:none}
+.card2.wide figure{flex:1;height:100%;margin:0;min-height:300px}
+.card2.wide p{color:#b7bec9}.card2.wide>div{flex:1}
+/* steps sticky */
+.steps{padding:60px 0 120px;background:var(--paper2);border-radius:60px 60px 0 0}
+.steps .grid{display:grid;grid-template-columns:1fr 1fr;gap:6vw}
+.steps .left{position:sticky;top:12vh;height:76vh;border-radius:var(--r);overflow:hidden}
+.steps .left img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06)}
+.steps .left img.on{opacity:1;transform:scale(1);transition:opacity .8s,transform 1.4s}
+.steps .left .badge{position:absolute;left:24px;top:24px;background:#fff;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:500}
+.steps .right h2{font-size:clamp(40px,4.6vw,66px);line-height:1;margin-bottom:8vh}
+.st{padding:36px 0;border-top:1px solid var(--line);opacity:.35;transition:opacity .5s}
+.st.on{opacity:1}
+.st .n{font-size:13px;color:var(--sea);font-weight:600;letter-spacing:.15em}
+.st h3{font-size:34px;margin:8px 0 10px}
+.st p{color:var(--mute);line-height:1.65;font-size:16px;max-width:40ch}
+/* before after slider */
+.ba{padding:120px 0}
+.ba .box{position:relative;height:min(80vh,720px);border-radius:var(--r);overflow:hidden;user-select:none;box-shadow:0 60px 100px -40px rgba(0,0,0,.35)}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba .after{clip-path:inset(0 50% 0 0)}
+.ba .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;transform:translateX(-1px)}
+.ba .handle i{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.3);font-size:18px;color:var(--ink)}
+.ba .tagl{position:absolute;top:24px;padding:8px 14px;border-radius:999px;background:rgba(17,20,24,.7);color:#fff;font-size:13px}
+.ba .tagl.a{left:24px}.ba .tagl.b{right:24px}
+/* cta */
+.cta{padding:40px 0 120px}
+.cta .box{background:var(--sea);color:#fff;border-radius:40px;padding:90px 8vw;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.cta .box:before{content:"";position:absolute;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.18),transparent 60%);right:-20vw;top:-20vw}
+.cta h2{font-size:clamp(40px,5.6vw,80px);line-height:1;position:relative}
+.cta p{position:relative;color:#d6e8f5;line-height:1.7;margin:20px 0 30px;font-size:17px}
+.cta form{position:relative;background:#fff;border-radius:24px;padding:26px;color:var(--ink);display:grid;gap:12px}
+.cta input,.cta select{border:1px solid var(--line);border-radius:12px;padding:14px 16px;font:inherit;font-size:15px;background:#fff;width:100%}
+footer{padding:30px 0 40px;font-size:14px;color:var(--mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.rv{opacity:0;transform:translateY(36px)}
+@media(max-width:900px){.hero,.sec-h,.steps .grid,.cta .box{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.card2.wide{grid-column:span 1;flex-direction:column}.steps .left{position:relative;height:50vh;top:0}nav a.l{display:none}.hero .chip{display:none}.hero .vis{height:50vh}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="#"><i></i>Boat Garage</a><a class="l" href="#hizmetler">Hizmetler</a><a class="l" href="#surec">Süreç</a><a class="l" href="#oncesonra">Önce / Sonra</a><a class="pill" href="#teklif">Teklif al →</a></nav>
+
+<header class="hero">
+  <div>
+    <div class="tag"><i></i>2026–27 kış sezonu rezervasyonları açık</div>
+    <h1 data-chars>Teknenizin <em>kış evi.</em></h1>
+    <p>Çeşme–Alaçatı'da kapalı garaj. Sezon bitince teslim alıyor, kışı temiz, bakımlı ve güvende geçirtiyor, ilkbaharda suya indiriyoruz.</p>
+    <div class="acts"><a class="pill" href="#teklif">Yer ayırt</a><a class="pill light" href="#surec">Nasıl çalışır?</a></div>
+  </div>
+  <div class="vis">
+    <div class="card"><img src="img/yacht-topdown.jpg" alt=""></div>
+    <div class="chip c1"><div class="ic">🏠</div><div><b>Kapalı garaj</b><small>Güneş ve tuzdan uzak</small></div></div>
+    <div class="chip c2"><div class="ic">📷</div><div><b>7/24 kamera</b><small>WhatsApp'tan fotoğraf</small></div></div>
+    <div class="chip c3"><div class="ic">✨</div><div><b>Polisajlı teslim</b><small>İlkbaharda ilk gün gibi</small></div></div>
+  </div>
+</header>
+
+<div class="strip"><span>Reis Yachting iştiraki</span><span>Çeşme · Alaçatı</span><span>Motor yat &amp; yelkenli</span><span>Sigortalı kışlama</span></div>
+
+<section class="clean" id="temizlik">
+  <div class="head"><h2 class="rv">Kaydırdıkça temizlensin.</h2><p class="rv">Basınçlı yıkama, karina temizliği ve jelkot polisaj. Fareyi görselin üstünde gezdirin, süngeri siz tutun.</p></div>
+  <div class="stage">
+    <div class="stick">
+      <div class="frame">
+        <div class="layer dirty"></div>
+        <div class="layer fresh"></div>
+        <div class="sponge"></div>
+        <div class="hint">↓ Kaydırın veya fareyle silin</div>
+        <div class="lbl"><b id="pct">0%</b><div class="track"><i id="bar"></i></div><span>Temizlik</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="hizmetler">
+  <div class="wrap">
+    <div class="sec-h"><h2 class="rv">Kışlama, bakım, temizlik.<br>Hepsi bir yerde.</h2><p class="rv">Tekneniz garajdayken bakım takvimi biz de işler. İlkbaharda ayrı bir servise koşmazsınız.</p></div>
+    <div class="cards">
+      <div class="card2 rv"><figure><img src="img/hangar-empty.jpg" alt=""></figure><div><div class="k">01 · Kışlama</div><h3>Kapalı garaj</h3><p>İklim kontrollü, kameralı kapalı alanda güvenli kış konaklaması.</p></div></div>
+      <div class="card2 rv"><figure><img src="img/drydock-worker.jpg" alt=""></figure><div><div class="k">02 · Servis</div><h3>Bakım &amp; onarım</h3><p>Motor kışlama, elektrik, fiber ve jelkot onarımı; yetkili servis kalitesinde.</p></div></div>
+      <div class="card2 rv"><figure><img src="img/hull-work-stands.jpg" alt=""></figure><div><div class="k">03 · Karina</div><h3>Antifouling</h3><p>Karina raspası, zehirli boya, anot ve sürtünme kontrolleri.</p></div></div>
+      <div class="card2 wide rv"><figure><img src="img/yacht-wake.jpg" alt=""></figure><div><div class="k" style="color:#7fc3ec">04 · Temizlik</div><h3>Polisaj &amp; detay</h3><p>Dış gövde polisaj, teak bakımı, iç mekân detay temizliği ve koruma kaplaması. Teslimde parlar.</p></div></div>
+      <div class="card2 rv"><figure><img src="img/hardstand-sea.jpg" alt=""></figure><div><div class="k">05 · Lojistik</div><h3>Vinç &amp; taşıma</h3><p>Marinadan garaja, garajdan denize. Kaldırma ve indirme bizde.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="surec">
+  <div class="wrap grid">
+    <div class="left">
+      <img class="on" src="img/yacht-wake.jpg" alt="">
+      <img src="img/hardstand-sea.jpg" alt="">
+      <img src="img/wooden-boat-work.jpg" alt="">
+      <img src="img/hangar-empty.jpg" alt="">
+      <img src="img/yacht-sunset-dock.jpg" alt="">
+      <div class="badge" id="badge">Adım 1 / 5</div>
+    </div>
+    <div class="right">
+      <h2 class="rv">Beş adımda kış uykusu.</h2>
+      <div class="st on"><div class="n">01</div><h3>Teslim alıyoruz</h3><p>Marinanızdan veya iskelemizden teknenizi alıyor, giriş kontrol listesini fotoğraflıyoruz.</p></div>
+      <div class="st"><div class="n">02</div><h3>Karaya çekiyoruz</h3><p>Travel lift ile güvenle kaldırıyor, karinayı basınçlı suyla yıkıyoruz.</p></div>
+      <div class="st"><div class="n">03</div><h3>Bakımı yapıyoruz</h3><p>Motor kışlama işlemi, akü, sintine, sistem kontrolleri ve onaylı onarımlar.</p></div>
+      <div class="st"><div class="n">04</div><h3>Garaja alıyoruz</h3><p>Kapalı, nem kontrollü alanda kendi yerine park. İstediğiniz an fotoğraf.</p></div>
+      <div class="st"><div class="n">05</div><h3>Sezona teslim</h3><p>Polisajı yapılmış, sistemleri test edilmiş tekneniz iskelede sizi bekler.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="ba" id="oncesonra">
+  <div class="wrap">
+    <div class="sec-h"><h2 class="rv">Önce / sonra.</h2><p class="rv">Çubuğu sürükleyin. Aynı tekne, aynı açı; aradaki fark bir hafta bakım.</p></div>
+    <div class="box">
+      <img class="before" src="img/yacht-bow-blue-dirty.jpg" alt="">
+      <img class="after" src="img/yacht-bow-blue.jpg" alt="">
+      <div class="handle"><i>⇔</i></div>
+      <span class="tagl a">Önce</span><span class="tagl b">Sonra</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="teklif">
+  <div class="wrap"><div class="box">
+    <div><h2>Yerinizi ayıralım.</h2><p>Tekne boyunuzu ve marinanızı yazın; aynı gün fiyat ve teslim tarihiyle dönelim. Kapasite sınırlı, sezon dolmadan yazın.</p><a class="pill" style="background:#fff;color:var(--sea)" href="https://wa.me/905000000000">WhatsApp'tan yazın →</a></div>
+    <form onsubmit="return false"><input placeholder="Ad Soyad"><input placeholder="Telefon"><select><option>Tekne boyu</option><option>0–8 m</option><option>8–12 m</option><option>12–16 m</option><option>16 m +</option></select><input placeholder="Şu an hangi marinada?"><button class="pill" style="justify-content:center">Teklif iste</button></form>
+  </div></div>
+</section>
+
+<footer class="wrap"><span>© 2026 Boat Garage · Reis Yachting iştiraki · Alaçatı, Çeşme</span><span>info@boat-garage.com · Instagram · KVKK</span></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);if(location.search.includes("static"))gsap.globalTimeline.timeScale(80);
+// hero chars
+const h1=document.querySelector('[data-chars]');
+h1.innerHTML=h1.innerHTML.replace(/(<em>)?([^<]+)(<\/em>)?/g,(m,a,t,b)=>(a||'')+t.split('').map(c=>c===' '?' ':`<span class="c">${c}</span>`).join('')+(b||''));
+gsap.timeline()
+ .to('.hero .c',{opacity:1,y:0,rotate:0,duration:.9,stagger:.03,ease:'power3.out'},.2)
+ .from('.hero p, .hero .acts, .tag',{opacity:0,y:20,duration:.8,stagger:.1},.7)
+ .from('.hero .card',{opacity:0,y:60,rotateX:12,duration:1.4,ease:'power3.out'},.3)
+ .to('.hero .card img',{scale:1,duration:2.2,ease:'power2.out'},.3)
+ .to('.hero .chip',{opacity:1,y:-10,duration:.8,stagger:.15},1.1);
+// card tilt with cursor
+const vis=document.querySelector('.hero .vis'),card=document.querySelector('.hero .card');
+vis.addEventListener('mousemove',e=>{const r=vis.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;gsap.to(card,{rotateY:x*10,rotateX:-y*10,duration:.6});gsap.to('.hero .chip',{x:x*-20,y:y*-20,duration:.8})});
+vis.addEventListener('mouseleave',()=>gsap.to([card],{rotateX:0,rotateY:0,duration:.8}));
+gsap.utils.toArray('.rv').forEach(el=>gsap.to(el,{opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
+// ---- scroll clean: circle grows with scroll; mouse sponge cleans around cursor ----
+const fresh=document.querySelector('.stage .fresh'),frame=document.querySelector('.stage .frame'),sponge=document.querySelector('.sponge'),pct=document.getElementById('pct'),bar=document.getElementById('bar');
+let prog=0,mx=50,my=50;
+function paint(){const r=prog*80;fresh.style.clipPath=`circle(${r}% at ${mx}% ${my}%)`;pct.textContent=Math.round(prog*100)+'%';bar.style.width=(prog*100)+'%'}
+ScrollTrigger.create({trigger:'.stage',start:'top 60%',end:'bottom 40%',scrub:.5,onUpdate:s=>{prog=s.progress;paint()}});
+frame.addEventListener('mousemove',e=>{const r=frame.getBoundingClientRect();mx=(e.clientX-r.left)/r.width*100;my=(e.clientY-r.top)/r.height*100;gsap.to(sponge,{left:e.clientX-r.left,top:e.clientY-r.top,opacity:1,duration:.25});paint()});
+frame.addEventListener('mouseleave',()=>{gsap.to(sponge,{opacity:0});gsap.to({v:mx},{v:50,duration:.8,onUpdate:function(){mx=this.targets()[0].v;my+= (50-my)*.1;paint()}})});
+// steps
+const imgs=document.querySelectorAll('.steps .left img'),sts=document.querySelectorAll('.st'),badge=document.getElementById('badge');
+sts.forEach((s,i)=>ScrollTrigger.create({trigger:s,start:'top 55%',end:'bottom 55%',onToggle:t=>{if(t.isActive){imgs.forEach(im=>im.classList.remove('on'));imgs[i].classList.add('on');sts.forEach(x=>x.classList.remove('on'));s.classList.add('on');badge.textContent=`Adım ${i+1} / 5`}}}));
+// before/after
+const box=document.querySelector('.ba .box'),after=box.querySelector('.after'),handle=box.querySelector('.handle');let drag=false;
+function setBA(x){const r=box.getBoundingClientRect();let p=Math.min(1,Math.max(0,(x-r.left)/r.width));after.style.clipPath=`inset(0 ${(1-p)*100}% 0 0)`;handle.style.left=p*100+'%'}
+box.addEventListener('pointerdown',e=>{drag=true;setBA(e.clientX)});window.addEventListener('pointermove',e=>drag&&setBA(e.clientX));window.addEventListener('pointerup',()=>drag=false);
+gsap.fromTo({p:.5},{p:.5},{p:.5,scrollTrigger:{trigger:box,start:'top 70%',once:true,onEnter:()=>gsap.fromTo({v:0},{v:0},{v:.5,duration:1.6,ease:'power3.out',onUpdate:function(){const r=box.getBoundingClientRect();setBA(r.left+r.width*this.targets()[0].v)}})}});
+</script>
+</body>
+</html>
