@@ -27,10 +27,10 @@ nav ul a:hover{color:#fff}
 .btn:hover:before{transform:translateX(0)}
 /* hero */
 .hero{position:relative;height:100vh;min-height:700px;overflow:hidden;display:grid;place-items:center}
-.hero .bg{position:absolute;inset:-6%;background:url(../img/yacht-trailer-sky.jpg) center/cover;filter:brightness(.6) saturate(.85);will-change:transform}
+.hero .bg{position:absolute;inset:-6%;background:url(../img/bg-yard.jpg) center/cover;filter:brightness(.6) saturate(.85);will-change:transform}
 .hero .grain{position:absolute;inset:0;background:radial-gradient(circle at 50% 100%,rgba(255,106,26,.28),transparent 55%)}
 .hero .title{position:relative;z-index:2;text-align:center}
-.hero h1{font-size:clamp(90px,19vw,300px);line-height:.85;background:url(../img/superyacht-bow.jpg) center/cover;-webkit-background-clip:text;background-clip:text;color:transparent;filter:contrast(1.1);display:block}
+.hero h1{font-size:clamp(90px,19vw,300px);line-height:.85;background:url(../img/bg-shed.jpg) center/cover;-webkit-background-clip:text;background-clip:text;color:transparent;filter:contrast(1.1);display:block}
 .hero h1 .row{display:block;overflow:hidden}
 .hero .sub{display:flex;justify-content:space-between;align-items:center;margin-top:20px;font-size:13px;letter-spacing:.25em;text-transform:uppercase;color:var(--mute);width:min(1100px,90vw)}
 .hero .sub b{color:var(--acc);font-weight:500}
@@ -52,8 +52,8 @@ nav ul a:hover{color:#fff}
 /* pressure wash */
 .wash{position:relative;height:100vh;overflow:hidden;background:#000}
 .wash .layer{position:absolute;inset:0;background-size:cover;background-position:center}
-.wash .dirty{background-image:url(../img/yacht-topdown-dirty.jpg)}
-.wash .fresh{background-image:url(../img/yacht-topdown.jpg);clip-path:inset(0 100% 0 0)}
+.wash .dirty{background-image:url(../img/bg-wash-dirty.jpg)}
+.wash .fresh{background-image:url(../img/bg-wash.jpg);clip-path:inset(0 100% 0 0)}
 .wash .beam{position:absolute;top:-10%;bottom:-10%;left:0;width:140px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.35) 50%,rgba(255,255,255,.95) 52%,transparent 54%);filter:blur(1px)}
 .wash canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .wash .ui{position:absolute;left:5vw;bottom:6vh;z-index:3}
@@ -140,9 +140,9 @@ footer{border-top:1px solid var(--line);padding:40px 0;font-size:12px;letter-spa
 <section class="svc" id="hizmetler">
   <div class="wrap">
     <h2 class="up">Ne <i>yapıyoruz?</i></h2>
-    <div class="row" style="--img:url(../img/hangar-empty.jpg)"><div class="n">01</div><h3>Kapalı kışlama</h3><p>İklim kontrollü, kameralı kapalı garajda güvenli kış konaklaması. Kendi yeri, kendi bakım kartı.</p><div class="arr">→</div><div class="pv"></div></div>
+    <div class="row" style="--img:url(../img/bg-rack.jpg)"><div class="n">01</div><h3>Kapalı kışlama</h3><p>İklim kontrollü, kameralı kapalı garajda güvenli kış konaklaması. Kendi yeri, kendi bakım kartı.</p><div class="arr">→</div><div class="pv"></div></div>
     <div class="row" style="--img:url(../img/drydock-worker.jpg)"><div class="n">02</div><h3>Bakım &amp; onarım</h3><p>Motor kışlama, elektrik, fiber ve jelkot onarımı; yetkili servis standartlarında.</p><div class="arr">→</div><div class="pv"></div></div>
-    <div class="row" style="--img:url(../img/superyacht-bow.jpg)"><div class="n">03</div><h3>Temizlik &amp; polisaj</h3><p>Basınçlı yıkama, jelkot polisaj, teak bakımı, iç mekân detay temizliği.</p><div class="arr">→</div><div class="pv"></div></div>
+    <div class="row" style="--img:url(../img/bg-shed.jpg)"><div class="n">03</div><h3>Temizlik &amp; polisaj</h3><p>Basınçlı yıkama, jelkot polisaj, teak bakımı, iç mekân detay temizliği.</p><div class="arr">→</div><div class="pv"></div></div>
     <div class="row" style="--img:url(../img/hull-work-stands.jpg)"><div class="n">04</div><h3>Karina &amp; antifouling</h3><p>Karina raspası, zehirli boya, anot değişimi. Sezona hazır alt yapı.</p><div class="arr">→</div><div class="pv"></div></div>
     <div class="row" style="--img:url(../img/hardstand-sea.jpg)"><div class="n">05</div><h3>Vinç &amp; taşıma</h3><p>Marinadan garaja, garajdan denize. Kaldırma, taşıma, suya indirme.</p><div class="arr">→</div><div class="pv"></div></div>
   </div>
@@ -152,8 +152,8 @@ footer{border-top:1px solid var(--line);padding:40px 0;font-size:12px;letter-spa
   <div class="imgs">
     <div style="background-image:url(../img/yacht-wake.jpg)"></div>
     <div style="background-image:url(../img/hardstand-sea.jpg)"></div>
-    <div style="background-image:url(../img/wooden-boat-work.jpg)"></div>
-    <div style="background-image:url(../img/hangar-empty.jpg)"></div>
+    <div style="background-image:url(../img/bg-workshop.jpg)"></div>
+    <div style="background-image:url(../img/bg-rack.jpg)"></div>
     <div style="background-image:url(../img/yacht-sunset-dock.jpg)"></div>
   </div>
   <div class="txt">
@@ -169,12 +169,12 @@ footer{border-top:1px solid var(--line);padding:40px 0;font-size:12px;letter-spa
 
 <section id="galeri" style="overflow:hidden">
   <div class="gal">
-    <figure><img src="../img/boats-stands-jester.jpg" alt=""><figcaption>Kışlama alanı</figcaption></figure>
-    <figure><img src="../img/superyacht-bow.jpg" alt=""><figcaption>Polisaj sonrası</figcaption></figure>
-    <figure><img src="../img/wooden-boat-work.jpg" alt=""><figcaption>Ahşap bakım</figcaption></figure>
-    <figure><img src="../img/yacht-trailer-sky.jpg" alt=""><figcaption>Taşıma</figcaption></figure>
-    <figure><img src="../img/marina-reflection.jpg" alt=""><figcaption>Teslim günü</figcaption></figure>
-    <figure><img src="../img/boatyard-covered.jpg" alt=""><figcaption>Sezon hazırlığı</figcaption></figure>
+    <figure><img src="../img/bg-stands.jpg" alt=""><figcaption>Kışlama alanı</figcaption></figure>
+    <figure><img src="../img/bg-shed.jpg" alt=""><figcaption>Polisaj sonrası</figcaption></figure>
+    <figure><img src="../img/bg-workshop.jpg" alt=""><figcaption>Ahşap bakım</figcaption></figure>
+    <figure><img src="../img/bg-yard.jpg" alt=""><figcaption>Taşıma</figcaption></figure>
+    <figure><img src="../img/bg-aerial.jpg" alt=""><figcaption>Teslim günü</figcaption></figure>
+    <figure><img src="../img/bg-trailer.jpg" alt=""><figcaption>Sezon hazırlığı</figcaption></figure>
   </div>
 </section>
 
