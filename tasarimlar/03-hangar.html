@@ -93,6 +93,12 @@ nav ul a:hover{color:#fff}
 .gal figure img{width:100%;height:100%;object-fit:cover;filter:grayscale(.6);transition:filter .6s,transform 1.2s}
 .gal figure:hover img{filter:grayscale(0);transform:scale(1.05)}
 .gal figcaption{position:absolute;left:16px;bottom:14px;font-family:"Bebas Neue";font-size:26px;letter-spacing:.06em}
+
+  /* galeri elle kaydırılabilir */
+  #galeri { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  #galeri::-webkit-scrollbar { display: none; }
+  .gal { width: max-content; }
+  .gal figure img { user-select: none; -webkit-user-drag: none; }
 /* cta */
 .cta{padding:140px 0;text-align:center;position:relative;overflow:hidden}
 .cta h2{font-size:clamp(80px,15vw,240px);line-height:.85}
@@ -152,7 +158,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;font-size:12px;letter-spa
   <div class="imgs">
     <div style="background-image:url(../img/yacht-wake.jpg)"></div>
     <div style="background-image:url(../img/hardstand-sea.jpg)"></div>
-    <div style="background-image:url(../img/bg-workshop.jpg)"></div>
+    <div style="background-image:url(../img/bg-bakim.jpg)"></div>
     <div style="background-image:url(../img/hangar-empty.jpg)"></div>
     <div style="background-image:url(../img/yacht-sunset-dock.jpg)"></div>
   </div>
@@ -167,11 +173,11 @@ footer{border-top:1px solid var(--line);padding:40px 0;font-size:12px;letter-spa
   <div class="prog"><i id="prog"></i></div>
 </section>
 
-<section id="galeri" style="overflow:hidden">
+<section id="galeri">
   <div class="gal">
     <figure><img src="../img/bg-stands.jpg" alt=""><figcaption>Kışlama alanı</figcaption></figure>
     <figure><img src="../img/reis-karada.jpg" alt=""><figcaption>Polisaj sonrası</figcaption></figure>
-    <figure><img src="../img/bg-workshop.jpg" alt=""><figcaption>Ahşap bakım</figcaption></figure>
+    <figure><img src="../img/bg-usta.jpg" alt=""><figcaption>Ahşap bakım</figcaption></figure>
     <figure><img src="../img/bg-yard.jpg" alt=""><figcaption>Taşıma</figcaption></figure>
     <figure><img src="../img/bg-aerial.jpg" alt=""><figcaption>Teslim günü</figcaption></figure>
     <figure><img src="../img/bg-trailer.jpg" alt=""><figcaption>Sezon hazırlığı</figcaption></figure>
@@ -224,7 +230,42 @@ const imgs=document.querySelectorAll('.seq .imgs div'),ts=document.querySelector
 const tl=gsap.timeline({scrollTrigger:{trigger:'.seq',start:'top top',end:'+=400%',pin:true,scrub:.6,onUpdate:s=>prog.style.width=s.progress*100+'%'}});
 imgs.forEach((im,i)=>{tl.to(im,{opacity:1,scale:1,duration:1},i).to(ts[i],{opacity:1,y:0,duration:.5},i+.1);if(i<imgs.length-1){tl.to(ts[i],{opacity:0,y:-30,duration:.4},i+.8).to(im,{opacity:0,duration:.6},i+1)}});
 // gallery horizontal drift
-const gal=document.querySelector('.gal');gsap.to(gal,{x:()=>-(gal.scrollWidth-innerWidth)*1,ease:'none',scrollTrigger:{trigger:'#galeri',start:'top bottom',end:'bottom top',scrub:1}});
+/* Galeri: hem sayfa kaydırmasıyla ilerler hem parmakla/fareyle sürüklenir.
+   Dokunmatikte kendi kaydırması esas; kullanıcı elleyince otomatik ilerleme susar. */
+(function () {
+  var kutu = document.getElementById('galeri');
+  if (!kutu) return;
+  var gal = kutu.querySelector('.gal');
+  var elle = false, sayac;
+  function elleBasla() { elle = true; clearTimeout(sayac); sayac = setTimeout(function () { elle = false; }, 2200); }
+  ['pointerdown', 'touchstart', 'wheel'].forEach(function (t) {
+    kutu.addEventListener(t, elleBasla, { passive: true });
+  });
+  /* fareyle sürükleme (dokunmatikte tarayıcının kendi kaydırması zaten var) */
+  var ince = window.matchMedia('(pointer: fine)').matches, sur = false, x0 = 0, s0 = 0;
+  if (ince) {
+    kutu.style.cursor = 'grab';
+    kutu.addEventListener('pointerdown', function (e) {
+      sur = true; x0 = e.clientX; s0 = kutu.scrollLeft; kutu.style.cursor = 'grabbing';
+      try { kutu.setPointerCapture(e.pointerId); } catch (err) {}
+    });
+    kutu.addEventListener('pointermove', function (e) {
+      if (sur) { kutu.scrollLeft = s0 - (e.clientX - x0); e.preventDefault(); }
+    });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (t) {
+      kutu.addEventListener(t, function () { sur = false; kutu.style.cursor = 'grab'; });
+    });
+    kutu.querySelectorAll('img').forEach(function (i) { i.draggable = false; });
+  }
+  ScrollTrigger.create({
+    trigger: '#galeri', start: 'top bottom', end: 'bottom top', scrub: true,
+    onUpdate: function (s) {
+      if (elle || sur) return;
+      var en = gal.scrollWidth - kutu.clientWidth;
+      if (en > 0) kutu.scrollLeft = en * s.progress;
+    }
+  });
+})();
 </script>
 </body>
 </html>
