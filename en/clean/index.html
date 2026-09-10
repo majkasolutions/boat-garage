@@ -254,5 +254,7 @@ box.addEventListener('pointerdown',e=>{drag=true;setBA(e.clientX)});window.addEv
 ScrollTrigger.create({trigger:box,start:'top 70%',once:true,onEnter:()=>gsap.fromTo({v:0},{v:0},{v:.5,duration:1.6,ease:'power3.out',onUpdate:function(){const r=box.getBoundingClientRect();setBA(r.left+r.width*this.targets()[0].v)}})});
 </script>
 <script src="../../assets/site.js"></script>
+  <!-- Majka ölçümü: çerezsiz, kendi Supabase'imize yazar. Kapatmak için siteye ?olcum=kapat ile gir. -->
+  <script defer src="https://panel.majkasolutions.com/olcum.js" data-site="boat-garage.com"></script>
 </body>
 </html>
